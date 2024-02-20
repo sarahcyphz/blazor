@@ -8,11 +8,28 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+@if (currentCount > 3)
+{
+    <p>Wow, you clicked the button @currentCount times!</p>
+}
+
+<ul>
+    @for (var i = 0; i < currentCount; i++)
+    {
+        <li>You have clicked the button @(i + 1) times</li>
+    }
+</ul>
+
 @code {
     private int currentCount = 0;
 
+    @* component parameter/ c# property *@
+    [Parameter]
+    public int IncrementAmount { get; set; } = 1;
+
+    @* C# method *@
     private void IncrementCount()
     {
-        currentCount++;
+        currentCount += IncrementAmount;
     }
 }

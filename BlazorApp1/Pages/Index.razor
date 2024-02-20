@@ -8,4 +8,10 @@ Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
 
-<Counter />
+@*inline expression*@
+@{
+    var amount = 1 + 1;
+}
+<Counter IncrementAmount="amount" />
+
+<Counter IncrementAmount="1+1" />
